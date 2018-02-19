@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SpeakingUp.ViewModels
 {
-    public abstract class ViewModelBase : INotifyPropertyChanged, IViewModelBase
+    internal abstract class ViewModelBase : INotifyPropertyChanged, IViewModelBase
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

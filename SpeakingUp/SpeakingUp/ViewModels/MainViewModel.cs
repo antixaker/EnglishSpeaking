@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpeakingUp.ViewModels
 {
-    public class MainViewModel : ViewModelBase
+    internal class MainViewModel : ViewModelBase
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpeakingUp.ViewModels
 {
-    public interface IViewModelBase
+    internal interface IViewModelBase
     {
         void Initialize();
         void Deinitialize();
