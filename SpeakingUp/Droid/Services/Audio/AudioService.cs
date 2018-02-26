@@ -17,7 +17,6 @@ namespace SpeakingUp.Droid.Services.Audio
 
         public AudioService()
         {
-            //_player = new MediaPlayer();//MediaPlayer.Create(Android.App.Application.Context, Resource.Raw.getthrucom);//new MediaPlayer();
             _assetManager = Android.App.Application.Context.Assets;
         }
 
@@ -44,10 +43,10 @@ namespace SpeakingUp.Droid.Services.Audio
                 }
                 _player.Stop();
                 _player.Release();
-                _player = new MediaPlayer();
             }
 
             _player = new MediaPlayer();
+
             using(var input = _assetManager.OpenFd(fileName))
             {
                 await _player.SetDataSourceAsync(input.FileDescriptor, input.StartOffset, input.Length);
@@ -60,7 +59,12 @@ namespace SpeakingUp.Droid.Services.Audio
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            if (_player == null)
+                return;
+
+            _player.Stop();
+            _player.Release();
+            _player = null;
         }
     }
 }
