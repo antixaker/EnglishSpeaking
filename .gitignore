@@ -234,3 +234,8 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+#Xamarin Forms
+Resource.Designer.cs
+
+*.DS_Store
