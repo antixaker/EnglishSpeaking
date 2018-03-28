@@ -13,6 +13,7 @@ namespace SpeakingUp.iOS.Services.Audio
     {
         private const string AudioRootPath = "Sounds/";
         private AVAudioPlayer soundEffect;
+        private bool wasPaused;
 
         public AudioService()
         {
@@ -37,6 +38,18 @@ namespace SpeakingUp.iOS.Services.Audio
 
             if (soundEffect != null)
             {
+                if (soundEffect.Playing)
+                {
+                    wasPaused = true;
+                    soundEffect.Pause();
+                    return;
+                }
+                else if (wasPaused)
+                {
+                    wasPaused = false;
+                    soundEffect.Play();
+                    return;
+                }
                 soundEffect.Stop();
                 soundEffect.Dispose();
             }
